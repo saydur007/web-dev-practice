@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab05</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+ 
+ 
+  <script>
+  $( function() {
+    $( ".img1" ).draggable();
+  } );
+     
+  </script>
+  <style>
+  #draggable{
+  width: 90% ;
+  height: 800px;
+  padding : 10px;
+  margin : 30px;
+  }
+  
+  
+  
+  </style>
+  
+</head>
+<body>
+ 
+<div id="draggable" class="ui-widget-content">
+ 
+  <img src="body2.jpg" alt="" height="400px" width="400px" class="img1">
+  
+  <img src="eyes2.png" height="100px" width="120px" alt=""  class="img1">
+  <img src="hat3.png" height="150px" width="250px" alt=""  class="img1">
+
+  <img src="lips.webp" height="100px" width="130px" alt=""  class="img1">
+   <img src="nosemut.png" height="100px" width="130px" alt=""  class="img1">
+</div>
+<button id="save_image">download image</button>
+<p>
+<button class="but">Revert back to original size</button>
+</p>
+<div class="d1">
+
+<img src="dog.webp" alt="" height="300px" width="300px" class="img2">
+
+
+
+</div>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+  const elementToSave = document.querySelector("#draggable");
+
+  $('#save_image').click(function() {
+    html2canvas(elementToSave).then(canvas => {
+      const a = document.createElement("a");
+      a.href = canvas.toDataURL("image/jpeg");
+      a.download = "MrPotato.jpeg";
+      a.click();
+    });
+  });
+  $(".img2").hover(function(){
+    var div = $(".img2");
+    div.animate({height: '100%'}, "slow");
+    div.animate({width: '100%'}, "slow");
+   
+  });
+   $(".but").click(function(){
+    $(".img2").animate({
+      
+      height: '300px',
+      width: '300px'
+    });
+  });
+</script>
+ 
+
+</body>
+</html>

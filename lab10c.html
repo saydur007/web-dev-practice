@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+
+<style>
+body{
+text-align:center;
+
+
+}
+
+div{
+transition: all linear 0.9s;
+text-align:center;
+ margin: auto;
+  width: 50%;
+  border: 15px solid green;
+  padding: 10px;
+  
+  font-size:1em;
+  color:red;
+  
+font-family: "Lucida Console", "Courier New", monospace;
+
+}
+.ng-hide {
+  height: 0;
+  width: 0;
+  background-color: blue;
+  top:-200px;
+  left: 200px;
+}
+</style>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+<h1>Hide the form: <input type="checkbox" ng-model="hide"></h1>
+<div ng-hide="hide" >
+
+First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
+phone number: <input type="text" ng-model="num"><br>
+
+
+
+<br>
+Your name is : {{firstName + " " + lastName}}
+<br>
+Your number is : {{num}}
+</div>
+<p style="text-align:center;font-size:2em;color:blue;">
+So here I used the angular framework to create a simple web page which has a form and slight animation on it.
+<h1> How I installed the frame work? </h1>
+<p style="text-align:center;font-size:2em;color:blue;">
+I installed it by putting a script tag in the head of my html file. So I added one script tag for installation of angular and another one for angular animation.
+</p>
+<h1>How the page was built </h1>
+<p style="text-align:center;font-size:2em;color:blue;">
+The web page was built with a mix of html and angular js. So we used angular js to get the form scope and use it to display all the input. So I set an initial scope in my 
+script tag but whenever someone updates the form the scope changes based on input and is displayed simultaneously. I also added a hide option to hide the form which  uses angular animation.
+SO basically when the checkbox is ticked it instantly trigger the animation hide option of angular and hides the form and if it is unchecked the form reappears with an animation.
+</p>
+<h1> Difficulties encountered </h1>
+<p style="text-align:center;font-size:2em;color:blue;">
+So the processing of the form was very straight forward as we just used the input from user to display it simulatenously. Just had to figure out how to use the scope function on angular.
+the hide animation was a bit tricky as we had to use angular animation on it so we had to create css property for the hide option so that everything vanishes and add a transition speed as well.
+But angular overall was sufficiently simple and the challenges were overcomed easily
+</p>
+
+</p>
+
+<p style="text-align:center;font-size:2.5em;color:red;">
+Thanks for your contribution throughout the semester. Adios.
+</p>
+<script>
+var app = angular.module('myApp', ['ngAnimate']);
+app.controller('myCtrl', function($scope) {
+    $scope.firstName = "first";
+    $scope.lastName = "Last";
+	$scope.num = "XXXXXXXXXXX";
+});
+</script>
+
+</body>
+</html>

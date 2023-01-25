@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>
+Lab04</title>
+<script>
+function JSF1_1(){
+let elem=document.getElementById('req1');
+let elem2=document.getElementById('t1');
+if(elem.value.length == 0){
+alert("name cannot be empty");
+elem.focus();
+return false;	}
+if(elem2.value.length == 0){
+alert("Phone number cannot be empty");
+elem2.focus();
+return false;	}
+var texts = /^[A-Za-z\s]+$/ ;
+if(!elem.value.match(texts)){
+		alert(" The name field can only have letters");
+		a.focus();
+		return false;
+	}
+var texti =   "[0-9]{3}-[0-9]{3}-[0-9]{4}";
+if(!elem2.value.match(texti)){
+		alert(" The phone number field can only have numbers and be like 456-555-5555");
+		elem2.focus();
+		return false;
+	}
+document.getElementById('display').innerHTML = "Name: "+document.getElementById("req1").value + "; "+ "Address: "+document.getElementById("d1").value + "; " + "Phone Number: " + document.getElementById("t1").value;
+document.getElementById('display').style.color="skyblue";
+document.getElementById('display').style.fontSize="3rem";
+return true;}
+
+function JSF1_3()
+{
+
+let elem=document.getElementById('req1');
+let elem2=document.getElementById('t1');
+let elem3=document.getElementById('p3');
+let elem4=document.getElementById('p2');
+let elem5=document.getElementById('p1');
+let elem6=document.getElementById('d1');
+elem.style.color="blue";
+elem.style.fontSize="3.5rem";
+elem2.style.color="blue";
+elem2.style.fontSize="3.5rem";
+elem3.style.color="blue";
+elem3.style.fontSize="3.5rem";
+elem4.style.color="blue";
+elem4.style.fontSize="3.5rem";
+elem5.style.color="blue";
+elem5.style.fontSize="3.5rem";
+elem6.style.color="blue";
+elem6.style.fontSize="3.5rem";
+}
+function JSF1_2()
+{
+let elem2=document.getElementById('t1');
+var num="";
+var x= "[0-9]{3}-[0-9]{3}-[0-9]{4}";
+
+if (elem2.value.match(x))
+{
+num="(" + elem2.value.substring(0,3) +")" + elem2.value.substring(4,7) + elem2.value.substring(7,12);
+document.getElementById('display1').innerHTML="your new number format is : " + num;
+
+}
+else {
+ alert("Number needs to be of format xxx-xxx-xxxx");
+
+
+}
+
+
+
+
+}
+
+
+
+
+
+function JSF2_1()
+{
+let myText = document.getElementById("my-text");
+myText.addEventListener("input", () => {
+    let count = (myText.value).length;
+    document.getElementById("count-result").textContent = `Total characters: ${count}`;
+	
+});
+}
+function JSF2_2()
+{
+let myText = document.getElementById("my-text");
+myText.addEventListener("input", () => {
+    let count = 0;
+	var text2 = /^[A-Za-z]+$/ ;
+	for (var i = 0; i < myText.value.length; i++)
+	{
+	 if(myText.value[i].match(text2))
+	 {
+	 count++;
+	 }}
+    document.getElementById("cnt").textContent = `Total letters: ${count}`;
+});
+
+
+}
+function JSF3_1()
+{
+var list=document.createElement('li');
+var element = document.createElement('a');
+    element.setAttribute("href","https://www.torontomu.ca/");
+    element.appendChild(document.createTextNode('Ryerson'));
+    //document.getElementById('mark').appendChild(element); 
+var para = document.createElement("i");
+
+  para.setAttribute("class","material-icons");
+  para.setAttribute("style","color:green");
+para.append('lock');
+//document.getElementById('mark').appendChild(para); 
+list.appendChild(element);
+list.appendChild(para);
+document.getElementById('mark').appendChild(list);
+var list2=document.createElement('li');
+var element2 = document.createElement('a');
+    element2.setAttribute("href","http://www.wikidot.com/");
+    element2.appendChild(document.createTextNode('Wiki'));
+    //document.getElementById('mark').appendChild(element); 
+var para2 = document.createElement("i");
+
+  para2.setAttribute("class","material-icons");
+  para2.setAttribute("style","color:red");
+para2.append('lock_open');
+list2.appendChild(element2);
+list2.appendChild(para2);
+//document.getElementById('mark').appendChild(para);
+document.getElementById('mark').appendChild(list2);
+}
+</script>
+
+</head>
+<body >
+
+
+
+<form>
+<p id ="p1">Enter your name: </p><input type="text" id="req1">
+<p id ="p2"> Address: </p><input type="text" id="d1" >
+<p id ="p3">Phone Number:  </p><input type="tel"  id="t1">
+<input type="button" onclick="JSF1_1()" value="Submit">
+<input type="button" onclick="JSF1_3()" value="Change style">
+<input type="button" onclick="JSF1_2()" value="Change number format">
+</form>
+<p><span id='display1'></span></p>
+<p><span id='display'></span></p>
+
+
+
+
+<textarea id="my-text" style="width: 200px;height: 200px;"> </textarea>
+<p id="count-result" style="font-size: 2rem"> Total characters: 0 </p>
+<p id= "cnt" style="font-size: 2rem"> Total letters: 0 </p>
+<div id="div1" onclick="JSF3_1()" style="color: red">  Click on the text for the boomarks to appear
+<ul id="mark">  </ul> </div>
+
+<script>
+JSF2_1();
+JSF2_2();
+
+</script>
+
+</body>
+
+
+
+
+
+
+
+</html>

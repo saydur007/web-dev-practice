@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Lab07b</title>
+</head>
+
+
+<body>
+
+<form action="https://www2.scs.ryerson.ca/~s79rahma/cgi-bin/lab07b.cgi" method="post">
+<div> NAME </div>
+<p id ="p1">First Name: </p><input type="text" name="first">
+<p id ="p1">Last Name: </p><input type="text" name="last">
+<div> Address </div>
+<p id ="p2"> Street Name: </p><input type="text" name="street" >
+<p id ="p1">Postal code: </p><input type="text" name="post">
+<p id ="p1">City: </p><input type="text" name="city">
+
+<label for="Province">Province:</label>
+<select name="province" id="provinces">
+    <option value="ON">ON</option>
+  <option value="QC">QC</option>
+  <option value="NS">NS</option>
+  <option value="NB">NB</option>
+   <option value="MB">MB</option>
+    <option value="BC">BC</option>
+	 <option value="PE">PE</option>
+	  <option value="SK">SK</option>
+	   <option value="AB">AB</option>
+	    <option value="NL">NL</option>
+</select>
+
+
+
+<p id ="p3">Phone Number:  </p><input type="tel"  name="phone">
+<p id ="p3">Email Address:  </p><input type="text"  name="email">
+<label for="picture">Upload Picture: </label>
+        <input type="file" name="picture" id="picture" accept="image/*" required>
+<input type="Submit">
+
+</form>
+
+
+
+
+</body>
+
+
+</html>
